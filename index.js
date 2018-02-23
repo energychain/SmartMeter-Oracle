@@ -54,6 +54,7 @@ module.exports =function() {
 	bcmeter.commit=function(containerId,tokenId,deploymentId) {
 		var p1 = new Promise(function(resolve, reject) { 
 			require('dotenv').config();
+			var rpcurl="https://fury.network/rpc";
 			if(tokenId==null) {
 				if(typeof process.env.tokenId!="undefined")  {
 						tokenId= process.env.tokenId;
@@ -69,8 +70,11 @@ module.exports =function() {
 						deploymentId= process.env.deploymentId;
 				}
 			}			
+			if(typeof process.env.rpcurl!="undefined") {
+					rpcurl=process.env.rpcurl;
+			}
 			new ethers.Wallet.fromBrainWallet(containerId, tokenId+"_"+deploymentId).then(function(wallet) {
-				wallet.provider=new ethers.providers.JsonRpcProvider(process.env.rpcurl,"ropsten")
+				wallet.provider=new ethers.providers.JsonRpcProvider(rpcurl,"ropsten")
 				bcmeter.getMeterReading(containerId,tokenId).then(function(reading) {
 						bcmeter.commitIf(wallet,reading).then(function(o) {
 								resolve({status:"ok",error:null,address:wallet.address,tx:o});

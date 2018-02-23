@@ -1,6 +1,6 @@
 {
   "name": "smartmeter-oracle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Allows anonymized oraclized smart meter readings in energy blockchain (limited to Discovergy meters)",
   "main": "index.js",
   "scripts": {
