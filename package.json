@@ -1,0 +1,23 @@
+{
+  "name": "smartmeter-oracle",
+  "version": "0.0.1",
+  "description": "Allows anonymized oraclized smart meter readings in energy blockchain (limited to Discovergy meters)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "smartmeter",
+    "blockchain",
+    "energy",
+    "iot",
+    "oracle",
+    "stromdao"
+  ],
+  "author": "Thorsten Zoerner <thorsten.zoerner@stromdao.de>",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^5.0.0",
+    "ethers": "^2.2.6"
+  }
+}
